@@ -7,8 +7,11 @@ ext = DataExtractor(invoices_file, expired_invoices_file)
 ext.load_data()
 transform = ext.transform_data()
 
+#
+# print(transform.dtypes)
+# print(transform.head())
 
-print(transform.dtypes)
-print(transform.head())
+
+transform.to_csv('transformed_data.csv', index=False)
 
 

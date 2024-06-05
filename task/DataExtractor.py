@@ -53,5 +53,6 @@ class DataExtractor:
                     df = pd.DataFrame(transformed_data)
                     df["invoiceitem_id"] = pd.to_numeric(df["invoiceitem_id"], errors="coerce").astype("Int64")
                     df["total_price"] = pd.to_numeric(df["total_price"], errors="coerce").astype("Int64")
+                    df = df.sort_values(by=['invoice_id', 'invoiceitem_id']).reset_index(drop=True)
 
         return df
